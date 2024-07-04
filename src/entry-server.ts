@@ -1,5 +1,7 @@
 import { renderToWebStream } from 'vue/server-renderer'
 import { createApp } from './main'
+import {createMemoryHistory, createRouter} from "vue-router";
+import {routes} from "./router";
 
 export function render() {
   const { app } = createApp()
@@ -8,6 +10,12 @@ export function render() {
   // @vitejs/plugin-vue injects code into a component's setup() that registers
   // itself on ctx.modules. After the render, ctx.modules would contain all the
   // components that have been instantiated during this render call.
+
+  app.use(createRouter({
+    history: createMemoryHistory(),
+    routes
+  }))
+
   const ctx = {}
   const stream = renderToWebStream(app, ctx)
 
