@@ -1,12 +1,16 @@
 <script setup lang="ts">
+import {onMounted} from "vue";
 
+onMounted(() => {
+  document.getElementById("loading-spinner")!.classList.add("hide");
+})
 </script>
 
 <template>
-  <div>
-
-  </div>
+  <router-view />
 </template>
 
-<style scoped>
+<style lang="sass">
+//#app
+//  flex: 1
 </style>
