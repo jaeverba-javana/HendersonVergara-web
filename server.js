@@ -15,10 +15,11 @@ const ssrManifest = IS_PRODUCTION
 // Create http server
 const app = express()
 
+
+
 // Add Vite or respective production middlewares
 let vite
-if (!IS_PRODUCTION)
-{
+if (!IS_PRODUCTION) {
   const { createServer } = await import('vite')
   vite = await createServer({
     server: { middlewareMode: true },
@@ -27,8 +28,7 @@ if (!IS_PRODUCTION)
   })
   app.use(vite.middlewares)
 }
-else
-{
+else {
   const compression = (await import('compression')).default
   const sirv = (await import('sirv')).default
   app.use(compression())

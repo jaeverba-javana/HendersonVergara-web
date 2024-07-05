@@ -1,10 +1,21 @@
 @import "assets/theme/palettes.sass"
 @import "./assets/theme/dark.css"
 
+@font-face
+  font-family: Montserrat
+  src: url("/fonts/Montserrat/static/Montserrat-Regular.ttf")
+  font-weight: 400
+
+@font-face
+  font-family: Montserrat
+  src: url("/fonts/Montserrat/static/Montserrat-Bold.ttf")
+  font-weight: 700
+
 \:root
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif
   line-height: 1.5
   font-weight: 400
+  font-size: 8px
 
   font-synthesis: none
   text-rendering: optimizeLegibility
@@ -18,5 +29,10 @@ body
   /*place-items: center;*/
   min-width: 320px
   min-height: 100vh
+  font-size: 16px
 
   background-color: var(--jv-color-neutral-0)
+  color: var(--jv-color-neutral-100)
+
+*
+  box-sizing: border-box
