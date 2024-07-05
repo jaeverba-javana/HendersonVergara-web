@@ -1,3 +1,8 @@
+
+import {fileURLToPath} from "node:url";
+import {dirname} from "node:path";
+
+
 // eslint-disable-next-line no-undef
 export const IS_PRODUCTION = process.env.NODE_ENV === 'production'
 // eslint-disable-next-line no-undef
@@ -30,3 +35,5 @@ export const CONSOLE_COLORS = {
     bg_cyan: "\x1b[46m",
     bg_white: "\x1b[47m"
 }
+
+export const __DIRNAME = dirname(fileURLToPath(import.meta.url));

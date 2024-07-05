@@ -26,6 +26,9 @@ importers:
       express-useragent:
         specifier: ^1.0.15
         version: 1.0.15
+      greenlock-express:
+        specifier: v4
+        version: 4.0.3
       morgan:
         specifier: ^1.10.0
         version: 1.10.0
@@ -221,6 +224,9 @@ packages:
     cpu: [x64]
     os: [win32]
 
+  '@greenlock/manager@3.1.0':
+    resolution: {integrity: sha512-PBy5CMK+j4oD7sj7hF5qE+xKEOSiiuL2hHd5X5ttEbtnTSDKjNeqbrR5k2ZddwVNdjOVeBIeuqlm81IFZ+Ftew==}
+
   '@jridgewell/sourcemap-codec@1.4.15':
     resolution: {integrity: sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==}
 
@@ -306,6 +312,40 @@ packages:
     resolution: {integrity: sha512-UOo5FdvOL0+eIVTgS4tIdbW+TtnBLWg1YBCcU2KWM7nuNwRz9bksDX1bekJJCpu25N1DVWaCwnT39dVQxzqS8g==}
     cpu: [x64]
     os: [win32]
+
+  '@root/acme@3.1.0':
+    resolution: {integrity: sha512-GAyaW63cpSYd2KvVp5lHLbCWeEhJPKZK9nsJvZJOKsD9Uv88KEttn4FpDZEJ+2q3Jsey0DWpuQ2I4ft0JV9p2w==}
+
+  '@root/asn1@1.0.0':
+    resolution: {integrity: sha512-0lfZNuOULKJDJmdIkP8V9RnbV3XaK6PAHD3swnFy4tZwtlMDzLKoM/dfNad7ut8Hu3r91wy9uK0WA/9zym5mig==}
+
+  '@root/csr@0.8.1':
+    resolution: {integrity: sha512-hKl0VuE549TK6SnS2Yn9nRvKbFZXn/oAg+dZJU/tlKl/f/0yRXeuUzf8akg3JjtJq+9E592zDqeXZ7yyrg8fSQ==}
+
+  '@root/encoding@1.0.1':
+    resolution: {integrity: sha512-OaEub02ufoU038gy6bsNHQOjIn8nUjGiLcaRmJ40IUykneJkIW5fxDqKxQx48cszuNflYldsJLPPXCrGfHs8yQ==}
+
+  '@root/greenlock-express@4.0.4':
+    resolution: {integrity: sha512-a0/9tHNQwt5Uyod7Mp59lo5UwrjdpOaRgaw8oKvDopVvrjsk1Urdhz9MoLh5p4APt7KhAI/hMFSG4gvczgSwaA==}
+
+  '@root/greenlock@4.0.5':
+    resolution: {integrity: sha512-KR9w3mYE9aH33FCibI8oSYBQV+f7lc3MVPdZ9nxY2tqRLmJp05cMOMz340mtG14VnWDuznLj4TbBj3sHIuoQPQ==}
+    hasBin: true
+
+  '@root/keypairs@0.10.3':
+    resolution: {integrity: sha512-hbmjVbk/G99Z1XlUzJM4VOAaR8jm4vMnfwpZL301FA24ubJ/bOjj6enCrz9gKsQvBO6RY4/R4MgUuWpXeqeZZQ==}
+
+  '@root/mkdirp@1.0.0':
+    resolution: {integrity: sha512-hxGAYUx5029VggfG+U9naAhQkoMSXtOeXtbql97m3Hi6/sQSRL/4khKZPyOF6w11glyCOU38WCNLu9nUcSjOfA==}
+
+  '@root/pem@1.0.4':
+    resolution: {integrity: sha512-rEUDiUsHtild8GfIjFE9wXtcVxeS+ehCJQBwbQQ3IVfORKHK93CFnRtkr69R75lZFjcmKYVc+AXDB+AeRFOULA==}
+
+  '@root/request@1.9.2':
+    resolution: {integrity: sha512-wVaL9yVV9oDR9UNbPZa20qgY+4Ch6YN8JUkaE4el/uuS5dmhD8Lusm/ku8qJVNtmQA56XLzEDCRS6/vfpiHK2A==}
+
+  '@root/x509@0.7.2':
+    resolution: {integrity: sha512-ENq3LGYORK5NiMFHEVeNMt+fTXaC7DTS6sQXoqV+dFdfT0vmiL5cDLjaXQhaklJQq0NiwicZegzJRl1ZOTp3WQ==}
 
   '@types/body-parser@1.19.5':
     resolution: {integrity: sha512-fB3Zu92ucau0iQ0JMCFQE7b/dv8Ot07NI3KaZIkIUNXq82k4eBAqUaneXfleGY9JWskeS9y+u0nXMyspcuQrCg==}
@@ -417,6 +457,9 @@ packages:
     resolution: {integrity: sha512-PYAthTa2m2VKxuvSD3DPC/Gy+U+sOA1LAuT8mkmRuvw+NACSaeXEQ+NHcVF7rONl6qcaxV3Uuemwawk+7+SJLw==}
     engines: {node: '>= 0.6'}
 
+  acme-http-01-standalone@3.0.5:
+    resolution: {integrity: sha512-W4GfK+39GZ+u0mvxRVUcVFCG6gposfzEnSBF20T/NUwWAKG59wQT1dUbS1NixRIAsRuhpGc4Jx659cErFQH0Pg==}
+
   anymatch@3.1.3:
     resolution: {integrity: sha512-KMReFUr0B4t+D+OBkjR3KYqvocp2XaSzO55UcB6mgQMd3KbcE+mWTyvVV7D/zsdEbNnV6acZUutkiHQXvTr1Rw==}
     engines: {node: '>= 8'}
@@ -463,6 +506,10 @@ packages:
   call-bind@1.0.7:
     resolution: {integrity: sha512-GHTSNSYICQ7scH7sZ+M2rFopRoLh8t2bLSW6BbgrtLsahOIB5iyAVJf9GjWK3cYTDaMj4XdBpM1cA6pIS0Kv2w==}
     engines: {node: '>= 0.4'}
+
+  cert-info@1.5.1:
+    resolution: {integrity: sha512-eoQC/yAgW3gKTKxjzyClvi+UzuY97YCjcl+lSqbsGIy7HeGaWxCPOQFivhUYm27hgsBMhsJJFya3kGvK6PMIcQ==}
+    hasBin: true
 
   chokidar@3.6.0:
     resolution: {integrity: sha512-7VT13fmjotKpGipCW9JEQAusEPE+Ei8nl6/g4FBAmIm0GOOLMua9NDDo/DWp0ZAxCr3cPq5ZpBqmPAQgDda2Pw==}
@@ -634,6 +681,15 @@ packages:
 
   gopd@1.0.1:
     resolution: {integrity: sha512-d65bNlIadxvpb/A2abVdlqKqV563juRnZ1Wtk6s1sIR8uNsXR70xqIzVqxVf1eTqDunwT2MkczEeaezCKTZhwA==}
+
+  greenlock-express@4.0.3:
+    resolution: {integrity: sha512-swTCuaLcZWbwRe9gf28AN1VO2PLiAoPB7StVhEFTBqCqqoHgiu0PJqdz3IbnfXB/8Kckx4sZ+B+Re2BvoCHY4A==}
+
+  greenlock-manager-fs@3.1.1:
+    resolution: {integrity: sha512-np6qdnPIOZx40PAcSQcqK1eMPWjTKxsxcgRd/OVg0ai49WC1Ds74CTrwmB84pq2n53ikbnDBQFmKEQ4AC0DK8w==}
+
+  greenlock-store-fs@3.2.2:
+    resolution: {integrity: sha512-92ejLB4DyV4qv/2b6VLGF2nKfYQeIfg3o+e/1cIoYLjlIaUFdbBXkzLTRozFlHsQPZt2ALi5qYrpC9IwH7GK8A==}
 
   has-property-descriptors@1.0.2:
     resolution: {integrity: sha512-55JNKuIW+vq4Ke1BjOTjM2YctQIvCT7GFzHwmfZPGo5wnrgkid0YQtnAleFSqumZm4az3n2BS+erby5ipJdgrg==}
@@ -819,6 +875,9 @@ packages:
     resolution: {integrity: sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA==}
     engines: {node: '>=8.10.0'}
 
+  redirect-https@1.3.1:
+    resolution: {integrity: sha512-Stex2nI+tMpZXKvy++32TiBXEy+GdpAfp3EUnl5BqCiJ5f5i6XvUSFrs7TR7IoRSlthM7ZtD89uYGTtJBXlFYg==}
+
   rollup@4.18.0:
     resolution: {integrity: sha512-QmJz14PX3rzbJCN1SG4Xe/bAAX2a6NpCP8ab2vfu2GiUr8AQcr2nCV/oEO3yneFarB67zk8ShlIyWb2LGTb3Sg==}
     engines: {node: '>=18.0.0', npm: '>=8.0.0'}
@@ -829,6 +888,9 @@ packages:
 
   safe-buffer@5.2.1:
     resolution: {integrity: sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==}
+
+  safe-replace@1.1.0:
+    resolution: {integrity: sha512-9/V2E0CDsKs9DWOOwJH7jYpSl9S3N05uyevNjvsnDauBqRowBPOyot1fIvV5N2IuZAbYyvrTXrYFVG0RZInfFw==}
 
   safer-buffer@2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
@@ -1071,6 +1133,10 @@ snapshots:
   '@esbuild/win32-x64@0.21.5':
     optional: true
 
+  '@greenlock/manager@3.1.0':
+    dependencies:
+      greenlock-manager-fs: 3.1.1
+
   '@jridgewell/sourcemap-codec@1.4.15': {}
 
   '@polka/url@1.0.0-next.25': {}
@@ -1122,6 +1188,62 @@ snapshots:
 
   '@rollup/rollup-win32-x64-msvc@4.18.0':
     optional: true
+
+  '@root/acme@3.1.0':
+    dependencies:
+      '@root/csr': 0.8.1
+      '@root/encoding': 1.0.1
+      '@root/keypairs': 0.10.3
+      '@root/pem': 1.0.4
+      '@root/request': 1.9.2
+      '@root/x509': 0.7.2
+
+  '@root/asn1@1.0.0':
+    dependencies:
+      '@root/encoding': 1.0.1
+
+  '@root/csr@0.8.1':
+    dependencies:
+      '@root/asn1': 1.0.0
+      '@root/pem': 1.0.4
+      '@root/x509': 0.7.2
+
+  '@root/encoding@1.0.1': {}
+
+  '@root/greenlock-express@4.0.4':
+    dependencies:
+      '@root/greenlock': 4.0.5
+      redirect-https: 1.3.1
+
+  '@root/greenlock@4.0.5':
+    dependencies:
+      '@greenlock/manager': 3.1.0
+      '@root/acme': 3.1.0
+      '@root/csr': 0.8.1
+      '@root/keypairs': 0.10.3
+      '@root/mkdirp': 1.0.0
+      '@root/request': 1.9.2
+      acme-http-01-standalone: 3.0.5
+      cert-info: 1.5.1
+      greenlock-store-fs: 3.2.2
+      safe-replace: 1.1.0
+
+  '@root/keypairs@0.10.3':
+    dependencies:
+      '@root/encoding': 1.0.1
+      '@root/pem': 1.0.4
+      '@root/x509': 0.7.2
+
+  '@root/mkdirp@1.0.0': {}
+
+  '@root/pem@1.0.4': {}
+
+  '@root/request@1.9.2': {}
+
+  '@root/x509@0.7.2':
+    dependencies:
+      '@root/asn1': 1.0.0
+      '@root/encoding': 1.0.1
 
   '@types/body-parser@1.19.5':
     dependencies:
@@ -1284,6 +1406,8 @@ snapshots:
       mime-types: 2.1.35
       negotiator: 0.6.3
 
+  acme-http-01-standalone@3.0.5: {}
+
   anymatch@3.1.3:
     dependencies:
       normalize-path: 3.0.0
@@ -1345,6 +1469,8 @@ snapshots:
       function-bind: 1.1.2
       get-intrinsic: 1.2.4
       set-function-length: 1.2.2
+
+  cert-info@1.5.1: {}
 
   chokidar@3.6.0:
     dependencies:
@@ -1558,6 +1684,22 @@ snapshots:
     dependencies:
       get-intrinsic: 1.2.4
 
+  greenlock-express@4.0.3:
+    dependencies:
+      '@root/greenlock': 4.0.5
+      '@root/greenlock-express': 4.0.4
+      redirect-https: 1.3.1
+
+  greenlock-manager-fs@3.1.1:
+    dependencies:
+      '@root/mkdirp': 1.0.0
+      safe-replace: 1.1.0
+
+  greenlock-store-fs@3.2.2:
+    dependencies:
+      '@root/mkdirp': 1.0.0
+      safe-replace: 1.1.0
+
   has-property-descriptors@1.0.2:
     dependencies:
       es-define-property: 1.0.0
@@ -1706,6 +1848,10 @@ snapshots:
     dependencies:
       picomatch: 2.3.1
 
+  redirect-https@1.3.1:
+    dependencies:
+      escape-html: 1.0.3
+
   rollup@4.18.0:
     dependencies:
       '@types/estree': 1.0.5
@@ -1731,6 +1877,8 @@ snapshots:
   safe-buffer@5.1.2: {}
 
   safe-buffer@5.2.1: {}
+
+  safe-replace@1.1.0: {}
 
   safer-buffer@2.1.2: {}
 
