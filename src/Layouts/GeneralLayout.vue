@@ -1,5 +1,6 @@
 <script setup lang="ts">
 
+import JInput from "@/Components/JInput.vue";
 </script>
 
 <template>
@@ -69,6 +70,17 @@
 
     <div class="aside right"></div>
   </div>
+
+  <footer>
+    <div class="container">
+      <form @submit.prevent>
+        <JInput icon="user" class="name" />
+        <JInput icon="envelope" class="email" />
+        <JInput icon="phone" class="phone" />
+        <JInput icon="message" class="message" type="textarea" />
+      </form>
+    </div>
+  </footer>
 </template>
 
 <style scoped lang="sass">
@@ -197,4 +209,52 @@ header
 
           background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.45) 28.5%, rgba(0, 0, 0, 0.79) 56%, rgba(0, 0, 0, 0.92) 70%, rgba(0, 0, 0, 0.97) 82%, rgba(0, 0, 0, 1) 100%)
 
+</style>
+
+<style lang="scss">
+footer {
+  display: flex;
+  justify-content: center;
+
+  background-color: var(--jv-color-neutral-5);
+
+  .container {
+    max-width: 1150px;
+    padding: 4rem 2rem;
+    width: 100%;
+
+    form {
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      grid-template-areas: "name message" "email message" "phone message" "buttons buttons";
+      gap: 2rem;
+
+      @media (max-width: 750px) {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "name message" "email message" "phone message" "buttons buttons";
+      }
+      @media (max-width: 620px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, auto) 20rem auto;
+        grid-template-areas: "name" "email" "phone" "message" "buttons";
+      }
+
+      .name {
+        grid-area: name;
+      }
+
+      .email {
+        grid-area: email;
+      }
+
+      .phone {
+        grid-area: phone;
+      }
+
+      .message {
+        grid-area: message;
+      }
+    }
+  }
+}
 </style>

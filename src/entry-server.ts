@@ -1,9 +1,15 @@
-import { renderToWebStream } from 'vue/server-renderer'
+import { renderToWebStream, renderToString } from 'vue/server-renderer'
 import { createApp } from './main'
 import {createMemoryHistory, createRouter} from "vue-router";
 import {routes} from "./router";
+import {createSSRApp, createVNode, h} from "vue";
+import {createHead} from "@unhead/vue";
+import App from "./App.vue";
+import JIcon from "./Components/JIcon.vue";
+import GeneralLayout from "./Layouts/GeneralLayout.vue";
 
-export function render() {
+// export function render() {
+export async function render(url: string): Promise<string> {
   const { app } = createApp()
 
   // passing SSR context object which will be available via useSSRContext()
@@ -11,13 +17,42 @@ export function render() {
   // itself on ctx.modules. After the render, ctx.modules would contain all the
   // components that have been instantiated during this render call.
 
-  app.use(createRouter({
+  const router = createRouter({
     history: createMemoryHistory(),
     routes
-  }))
+  })
+
+  app.use(router)
 
   const ctx = {}
-  const stream = renderToWebStream(app, ctx)
+  // const stream = renderToWebStream(app, ctx)
 
-  return { stream }
+  router.push(url)
+  await router.isReady()
+
+  const html = await renderToString(app, ctx)
+
+  const head = await renderToString(
+      createSSRApp({
+        setup(props, ctx) {
+          const {meta} = router.resolve(url);
+
+          const elements = []
+
+          for (const metaKey in meta) {
+            if (typeof meta[metaKey] === "string") {
+              elements.push(h(metaKey, {}, meta[metaKey]))
+            } else if (meta[metaKey] instanceof Array) {
+              for (const elementElement of meta[metaKey]) {
+                elements.push(h(metaKey, elementElement, []))
+              }
+            }
+          }
+
+          return () => elements
+        }
+      })
+      , ctx)
+
+  return { head, html }
 }

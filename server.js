@@ -92,11 +92,18 @@ app.use('*', async (req, res) => {
       render = (await import('./dist/server/entry-server.js')).render
     }
 
-    const { stream } = render(url, ssrManifest)
+    // const { stream } = render(url, ssrManifest)
+    const rendered = await render(url, ssrManifest)
 
-    const [htmlStart, htmlEnd] = template.split('<!--app-html-->')
+    console.log(rendered.html)
 
-    res.status(200).set({ 'Content-Type': 'text/html' })
+    // const [htmlStart, htmlEnd] = template.split('<!--app-html-->')
+    const html = template
+        .replace(`<!--app-head-->`, rendered.head ?? '')
+        .replace(`<!--app-html-->`, rendered.html ?? '')
+
+    res.status(200).set({ 'Content-Type': 'text/html' }).send(html)
+    /*res.status(200).set({ 'Content-Type': 'text/html' })
 
     res.write(htmlStart)
     for await (const chunk of stream) {
@@ -104,7 +111,7 @@ app.use('*', async (req, res) => {
       res.write(chunk)
     }
     res.write(htmlEnd)
-    res.end()
+    res.end()*/
   } catch (e) {
     vite?.ssrFixStacktrace(e)
     console.log(e.stack)
