@@ -8,9 +8,9 @@ import JInput from "@/Components/JInput.vue";
   <header>
     <nav class="header">
       <div class="left">
-        <img src="/img/svg/logo/Logo%20Blanco%20.5.svg" alt="">
+        <img :src="rf+'/img/svg/logo/Logo%20Blanco%20.5.svg'" alt="">
 
-        <img src="/img/svg/logo/LogoTexto-Blanco-HShrink.svg" alt="">
+        <img :src="rf+'/img/svg/logo/LogoTexto-Blanco-HShrink.svg'" alt="">
       </div>
     </nav>
 
@@ -20,13 +20,11 @@ import JInput from "@/Components/JInput.vue";
       <div class="image"></div>
 
       <div class="content">
-        <img class="logo" src="/img/svg/logo/LogoTextoProducciones-Blanco.svg" alt="">
+        <img class="logo" :src="sr+'/img/svg/logo/LogoTextoProducciones-Blanco.svg'" alt="">
 
-<!--        <div>-->
           <span class="bc">Bodas y compromisos</span>
 
           <span class="rtmm">Retratamos tus mejores momentos</span>
-<!--        </div>-->
 
       </div>
     </div>

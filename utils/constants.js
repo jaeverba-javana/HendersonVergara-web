@@ -36,4 +36,6 @@ export const CONSOLE_COLORS = {
     bg_white: "\x1b[47m"
 }
 
+export const PUBLIC_DIR = IS_PRODUCTION? "https://hendersonvergarap.blob.core.windows.net/resources" : ""
+
 export const __DIRNAME = dirname(fileURLToPath(import.meta.url));

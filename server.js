@@ -95,7 +95,7 @@ app.use('*', async (req, res) => {
     // const { stream } = render(url, ssrManifest)
     const rendered = await render(url, ssrManifest)
 
-    console.log(rendered.html)
+    // console.log(rendered.html)
 
     // const [htmlStart, htmlEnd] = template.split('<!--app-html-->')
     const html = template
