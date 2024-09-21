@@ -20,7 +20,7 @@ import JInput from "@/Components/JInput.vue";
       <div class="image"></div>
 
       <div class="content">
-        <img class="logo" :src="sr+'/img/svg/logo/LogoTextoProducciones-Blanco.svg'" alt="">
+        <img class="logo" :src="rf+'/img/svg/logo/LogoTextoProducciones-Blanco.svg'" alt="">
 
           <span class="bc">Bodas y compromisos</span>
 
