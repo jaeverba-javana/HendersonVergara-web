@@ -1,7 +1,6 @@
 <script lang="ts">
-import {defineComponent, h, onBeforeMount} from 'vue'
-import {regular} from "@/Fragments/Icons.js"
-import {DOMParser as mdp} from "@xmldom/xmldom"
+import {defineComponent, h} from 'vue'
+import Icons from "@/Fragments/Icons.js";
 
 export default defineComponent({
   name: "JIcon",
@@ -9,13 +8,9 @@ export default defineComponent({
     icon: {type: String},
   },
   setup(props) {
-    let svg = new mdp().parseFromString(regular[props.icon], "text/xml")
+    const icon = Icons.regular[props.icon]
 
-    // console.log(svg.childNodes)
-
-    let viewBox = svg.getElementsByTagName("svg")[0].getAttribute("viewBox")
-
-    // let viewBox = svg.querySelector('svg')!.viewBox
+    const maxSide = icon.viewBox.w > icon.viewBox.h? icon.viewBox.w : icon.viewBox.h
 
     let span = h(
         "span",
@@ -23,14 +18,8 @@ export default defineComponent({
         [
             h(
                 "svg",
-                {
-                  // viewBox: `${viewBox.baseVal.x} ${viewBox.baseVal.y} ${viewBox.baseVal.width} ${viewBox.baseVal.height}`
-                  viewBox,
-                },
-                [
-                    // h("path", {d: svg.querySelector('path')!.getAttribute('d')})
-                    h("path", {d: svg.getElementsByTagName("path")[0]!.getAttribute('d')})
-                ]
+                {viewBox: `${-maxSide+icon.viewBox.w/2} ${-maxSide+icon.viewBox.h/2} ${maxSide*2} ${maxSide*2}`},
+                [h("path", {d: icon.path.d})]
             )
         ]
     )
@@ -41,10 +30,6 @@ export default defineComponent({
   }
 })
 </script>
-
-<template>
-
-</template>
 
 <style lang="sass">
 span[data-j-icon]
