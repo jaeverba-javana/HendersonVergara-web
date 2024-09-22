@@ -1,7 +1,12 @@
 <script setup lang="ts">
 
 import JInput from "@/Components/JInput.vue";
-</script>
+import {ref} from "vue";
+const name = ref("");
+const email = ref("");
+const phone = ref("");
+const message = ref("");
+ </script>
 
 <template>
 
@@ -72,10 +77,10 @@ import JInput from "@/Components/JInput.vue";
   <footer>
     <div class="container">
       <form @submit.prevent>
-        <JInput icon="user" class="name" />
-        <JInput icon="envelope" class="email" />
-        <JInput icon="phone" class="phone" />
-        <JInput icon="message" class="message" type="textarea" />
+        <JInput icon="user" class="name" placeholder="Nombre" v-model="name"/>
+        <JInput icon="envelope" class="email" placeholder="Correo Electrónico" v-model="email" />
+        <JInput icon="phone" class="phone" placeholder="Teléfono" v-model="phone"/>
+        <JInput icon="message" class="message" placeholder="Teléfono" v-model="message" type="textarea" />
       </form>
     </div>
   </footer>
