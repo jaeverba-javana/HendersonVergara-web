@@ -14,6 +14,7 @@ export default defineComponent({
     const icon = Icons[props.category][props.icon]
 
     const maxSide = icon.viewBox.w > icon.viewBox.h? icon.viewBox.w : icon.viewBox.h
+    const rel = (props.category === "regular")? 2 : 4/3
 
     let span = h(
         "span",
@@ -21,7 +22,7 @@ export default defineComponent({
         [
             h(
                 "svg",
-                {viewBox: `${-maxSide+icon.viewBox.w/2} ${-maxSide+icon.viewBox.h/2} ${maxSide*2} ${maxSide*2}`},
+                {viewBox: `${-(maxSide*rel-icon.viewbox.w)/2} ${-(maxSide+*rel-icon.viewBox.h)/2} ${maxSide*rel} ${maxSide*rel}`},
                 [h("path", {d: icon.path.d})]
             )
         ]
