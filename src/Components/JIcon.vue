@@ -23,7 +23,7 @@ export default defineComponent({
             h(
                 "svg",
                 {
-                  viewBox: `${-(maxSide*rel-icon.viewbox.w)/2} ${-(maxSide*rel-icon.viewBox.h)/2} ${maxSide*rel} ${maxSide*rel}`
+                  viewBox: `${-(maxSide*rel-icon.viewBox.w)/2} ${-(maxSide*rel-icon.viewBox.h)/2} ${maxSide*rel} ${maxSide*rel}`
                 },
                 [h("path", {d: icon.path.d})]
             )
