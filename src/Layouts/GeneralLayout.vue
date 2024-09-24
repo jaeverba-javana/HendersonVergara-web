@@ -83,9 +83,9 @@ const message = ref("");
       <span class="filler"></span>
 
       <div class="container">
-        <SIcon icon="whatsapp" />
-        <SIcon icon="facebook" />
-        <SIcon icon="instagram" />
+        <SIcon icon="squareWhatsapp" />
+        <SIcon icon="squareFacebook" />
+        <SIcon icon="squareInstagram" />
       </div>
       <span class="filler2"></span>
     </nav>

@@ -1,6 +1,7 @@
 <script lang="ts">
-import {defineComponent} from 'vue'
+import {defineComponent, PropType} from 'vue'
 import JIcon from "@/Components/JIcon.vue";
+
 
 export default defineComponent({
   name: "SIcon",
@@ -13,9 +14,9 @@ export default defineComponent({
 
 <template>
   <span class="sIcon">
-    <JIcon class="icon icon1" :icon="icon" category="brands" />
+    <JIcon class="icon icon1" :icon="icon" category="brands" type=large />
 
-    <JIcon class="icon icon2" :icon="icon" category="brands" />
+    <JIcon class="icon icon2" :icon="icon" category="brands" type=large />
   </span>
 </template>
 
