@@ -2,11 +2,14 @@
 
 import JInput from "@/Components/JInput.vue";
 import {ref} from "vue";
+import JIcon from "@/Components/JIcon.vue";
+import SIcon from "@/Components/SIcon.vue";
+
 const name = ref("");
 const email = ref("");
 const phone = ref("");
 const message = ref("");
- </script>
+</script>
 
 <template>
 
@@ -27,10 +30,13 @@ const message = ref("");
       <div class="content">
         <img class="logo" :src="rf+'/img/svg/logo/LogoTextoProducciones-Blanco.svg'" alt="">
 
-          <span class="bc">Bodas y compromisos</span>
+        <span class="bc f-display-small">Bodas y compromisos</span>
 
-          <span class="rtmm">Retratamos tus mejores momentos</span>
+        <span class="rtmm f-display-medium ">Retratamos tus mejores momentos</span>
 
+        <div class="arrow">
+          <JIcon class="icon" icon="circleArrowDown" />
+        </div>
       </div>
     </div>
   </header>
@@ -72,15 +78,27 @@ const message = ref("");
     </div>
 
     <div class="aside right"></div>
+
+    <nav aria-label="Social media link icons" class="socialMediaIcons">
+      <span class="filler"></span>
+
+      <div class="container">
+        <SIcon icon="whatsapp" />
+        <SIcon icon="facebook" />
+        <SIcon icon="instagram" />
+      </div>
+      <span class="filler2"></span>
+    </nav>
   </div>
 
   <footer>
     <div class="container">
+      <h2 class="f-display-large">Contacto</h2>
       <form @submit.prevent>
         <JInput icon="user" class="name" placeholder="Nombre" v-model="name"/>
-        <JInput icon="envelope" class="email" placeholder="Correo Electrónico" v-model="email" />
+        <JInput icon="envelope" class="email" placeholder="Correo Electrónico" v-model="email"/>
         <JInput icon="phone" class="phone" placeholder="Teléfono" v-model="phone"/>
-        <JInput icon="message" class="message" placeholder="Teléfono" v-model="message" type="textarea" />
+        <JInput icon="message" class="message" placeholder="Teléfono" v-model="message" type="textarea"/>
       </form>
     </div>
   </footer>
@@ -140,6 +158,8 @@ header
       flex-direction: column
       row-gap: 8rem
 
+      position: relative
+
       > div
         display: flex
         flex-direction: column
@@ -149,24 +169,31 @@ header
       img
         max-width: 800px
 
-      span
+      .rtmm
         color: #FFF
 
         font-family: Montserrat
         font-style: normal
         line-height: normal
 
-        &.bc
-          font-size: 32px
-          font-weight: 400
-
         &.rtmm
-          font-size: 40px
           font-weight: 700
+
+      .arrow
+        position: absolute
+        bottom: 0
+
+        .icon
+          height: 10rem
+          color: var(--md-sys-color-primary)
+          border-radius: 6rem
+
+
 
 
 .mainando
   display: flex
+  position: relative
 
   justify-content: space-between
 
@@ -177,7 +204,8 @@ header
     flex: 1
 
     main
-      max-width: 1150px
+      box-sizing: content-box
+      max-width: 1440px
       padding: 4rem 2rem
 
       section.photos
@@ -201,8 +229,8 @@ header
             img
               width: 100%
 
-              //~ img
-              //  margin-top: 2rem
+        //~ img
+        //  margin-top: 2rem
 
         > span
           width: 100%
@@ -211,6 +239,30 @@ header
           height: 80rem
 
           background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.45) 28.5%, rgba(0, 0, 0, 0.79) 56%, rgba(0, 0, 0, 0.92) 70%, rgba(0, 0, 0, 0.97) 82%, rgba(0, 0, 0, 1) 100%)
+
+  .socialMediaIcons
+    position: absolute
+    height: 100%
+    top: 0
+    right: 0
+    display: flex
+    flex-direction: column
+
+    .filler
+      flex: 1
+
+    //.filler2
+    //  height: 100vh
+
+    .container
+      background-color: rgba(0, 0 , 0, 0.8)
+      //background-color: white
+      //backdrop-filter: blur(1rem)
+      padding: 4rem 2rem
+      position: sticky
+      bottom: 4rem
+      display: flex
+      column-gap: 1rem
 
 </style>
 

@@ -21,7 +21,7 @@ export default defineComponent({
           class: {
             'j-input': true,
             "j-input-wi": props.icon,
-            "isText": !!(props.modelValue)
+            "isText": !!(props.modelValue), //Ya hay texto en el input
           },
         },
         [
@@ -69,12 +69,12 @@ export default defineComponent({
 
 <style lang="sass">
 .j-input
+  transition-duration: .4s
   border: 1px var(--jv-color-neutral-10) solid
   background-color: var(--jv-color-neutral-0)
   color: var(--jv-color-neutral-100)
   display: flex
-  --font-size-base: 1.5rem
-  --font-size: 2rem
+  font-size: 16px
   --border-w: 1px
 
   &.isText
@@ -86,7 +86,7 @@ export default defineComponent({
   &.isText, &:focus-within
 
     .j-input__placeholder
-      font-size: var(--font-size-base)
+      font-size: 0.75em
 
       &-container
         top: -50%
@@ -107,9 +107,10 @@ export default defineComponent({
       width: 100%
       background-color: transparent
       color: currentColor
-      font-family: Montserrat
-      font-weight: 400
-      font-size: var(--font-size)
+      font:
+        family: Montserrat
+        weight: 400
+        size: 1em
       flex: 1
       border: 0
       margin: 0
@@ -119,8 +120,9 @@ export default defineComponent({
         outline: 0
 
   &__placeholder
-    font-size: var(--font-size)
     transition-duration: 400ms
+    font-family: Montserrat
+    font-size: 1em
 
     &-wrapper
       pointer-events: none
@@ -146,7 +148,9 @@ export default defineComponent({
       position: absolute
       top: calc(0px - var(--border-w))
       height: var(--border-w)
-      font-size: var(--font-size-base)
+      font:
+        family: Montserrat
+        size: 0.75em
       opacity: 0
       pointer-events: none
       left: -2px
@@ -156,7 +160,7 @@ export default defineComponent({
   &[type="textarea"]
     .j-input__placeholder
       &-wrapper
-        max-height: calc(var(--font-size) * 3)
+        max-height: 6rem
         display: flex
         align-items: center
 

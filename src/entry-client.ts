@@ -1,4 +1,4 @@
-import './style.css'
+import './style.sass'
 import { createApp } from './main'
 import {createRouter, createWebHistory} from "vue-router";
 import {routes} from "./router";

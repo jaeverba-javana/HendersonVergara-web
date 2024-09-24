@@ -1,14 +1,17 @@
 <script lang="ts">
-import {defineComponent, h} from 'vue'
+import {defineComponent, h, PropType} from 'vue'
 import Icons from "@/Fragments/Icons.js";
+
+type Category = 'regular'|'solid'|"brands";
 
 export default defineComponent({
   name: "JIcon",
   props: {
-    icon: {type: String},
+    icon: {type: String, required: true},
+    category: {type: String as PropType<Category>, default: "regular"}
   },
   setup(props) {
-    const icon = Icons.regular[props.icon]
+    const icon = Icons[props.category][props.icon]
 
     const maxSide = icon.viewBox.w > icon.viewBox.h? icon.viewBox.w : icon.viewBox.h
 
@@ -33,11 +36,8 @@ export default defineComponent({
 
 <style lang="sass">
 span[data-j-icon]
-  position: relative
-  display: flex
-  place:
-    content: center
-    items: center
+  //position: relative
+  display: block
 
   svg
     max-width: 100%
