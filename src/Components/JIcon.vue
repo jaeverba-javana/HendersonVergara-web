@@ -3,7 +3,7 @@ import {defineComponent, h, PropType} from 'vue'
 import Icons from "@/Fragments/Icons.js";
 
 type Category = 'regular'|'solid'|"brands";
-type Type = "regular"|"large";
+type Type = "regular"|"large"|"cover";
 
 export default defineComponent({
   name: "JIcon",
@@ -16,7 +16,21 @@ export default defineComponent({
     const icon = Icons[props.category][props.icon]
 
     const maxSide = icon.viewBox.w > icon.viewBox.h? icon.viewBox.w : icon.viewBox.h
-    const rel = (props.category === "regular")? 2 : 4/3
+    let rel: number;
+
+    switch (props.type) {
+      case "regular":
+        rel = 2;
+        break;
+
+      case "large":
+        rel = 4/3;
+        break;
+
+      case "cover":
+        rel = 1;
+        break;
+    }
 
     let span = h(
         "span",

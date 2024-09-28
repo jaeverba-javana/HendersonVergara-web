@@ -4,6 +4,8 @@ import JInput from "@/Components/JInput.vue";
 import {ref} from "vue";
 import JIcon from "@/Components/JIcon.vue";
 import SIcon from "@/Components/SIcon.vue";
+import SectionComponent from "@/Components/section/SectionComponent.vue";
+import SectionTitle from "@/Components/section/SectionTitleComponent.vue";
 
 const name = ref("");
 const email = ref("");
@@ -16,9 +18,9 @@ const message = ref("");
   <header>
     <nav class="header">
       <div class="left">
-        <img :src="rf+'/img/svg/logo/Logo%20Blanco%20.5.svg'" alt="">
+        <img class="iso" :src="rf+'/img/svg/logo/Logo%20Blanco%20.5.svg'" alt="">
 
-        <img :src="rf+'/img/svg/logo/LogoTexto-Blanco-HShrink.svg'" alt="">
+        <img class="typo" :src="rf+'/img/svg/logo/LogoTexto-Blanco-HShrink.svg'" alt="">
       </div>
     </nav>
 
@@ -44,10 +46,14 @@ const message = ref("");
   <div class="mainando">
     <div class="aside left"></div>
 
-    <div class="content">
+<!--    <div class="content">-->
       <main>
-        <section class="photos">
-          <div>
+        <SectionComponent class="photos">
+          <template v-slot:title>
+            <SectionTitle title="Galería" />
+          </template>
+
+          <div class="content">
             <div>
               <img src="/img/png/wedphotos/f17ee85fc7f4f0f2b447acb1b2cc3284.jpg" alt="">
               <img src="/img/png/wedphotos/6daea36b11f2c570ca0ea17283db4fea.png" alt="">
@@ -73,9 +79,9 @@ const message = ref("");
           <span>
 
           </span>
-        </section>
+        </SectionComponent>
       </main>
-    </div>
+<!--    </div>-->
 
     <div class="aside right"></div>
 
@@ -83,9 +89,9 @@ const message = ref("");
       <span class="filler"></span>
 
       <div class="container">
-        <SIcon icon="squareWhatsapp" />
-        <SIcon icon="squareFacebook" />
-        <SIcon icon="squareInstagram" />
+        <SIcon icon="whatsapp" second-icon-color="#25D366" href="https://wa.link/6vtqj0"/>
+        <SIcon icon="facebook" second-icon-color="#4267B2" />
+        <SIcon icon="instagram" second-icon-color="#C13584" />
       </div>
       <span class="filler2"></span>
     </nav>
@@ -130,6 +136,10 @@ header
     .left
       img
         height: 100%
+
+      @media (max-width: 480px)
+        .typo
+          display: none
 
   .header-content
     position: relative
@@ -197,48 +207,42 @@ header
 
   justify-content: space-between
 
-  .content
-    display: flex
-    align-items: center
-    flex-direction: column
-    flex: 1
 
-    main
-      box-sizing: content-box
-      max-width: 1440px
-      padding: 4rem 2rem
 
-      section.photos
-        overflow: hidden
+  main
+    box-sizing: content-box
+    width: 100%
+    //display: flex
+    //align-items: center
+    //flex-direction: column
+
+    section.photos
+
+      div.content
         display: flex
-        flex-direction: column
-        position: relative
+        column-gap: 2rem
+        max-height: 1200px
 
         > div
+          flex: 1
           display: flex
-          column-gap: 2rem
-          max-height: 1200px
+          flex-direction: column
 
-          > div
-            flex: 1
-            display: flex
-            flex-direction: column
+          row-gap: 2rem
 
-            row-gap: 2rem
+          img
+            width: 100%
 
-            img
-              width: 100%
+      //~ img
+      //  margin-top: 2rem
 
-        //~ img
-        //  margin-top: 2rem
+      > span
+        width: 100%
+        position: absolute
+        bottom: 0
+        height: 80rem
 
-        > span
-          width: 100%
-          position: absolute
-          bottom: 0
-          height: 80rem
-
-          background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.45) 28.5%, rgba(0, 0, 0, 0.79) 56%, rgba(0, 0, 0, 0.92) 70%, rgba(0, 0, 0, 0.97) 82%, rgba(0, 0, 0, 1) 100%)
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.45) 28.5%, rgba(0, 0, 0, 0.79) 56%, rgba(0, 0, 0, 0.92) 70%, rgba(0, 0, 0, 0.97) 82%, rgba(0, 0, 0, 1) 100%)
 
   .socialMediaIcons
     position: absolute

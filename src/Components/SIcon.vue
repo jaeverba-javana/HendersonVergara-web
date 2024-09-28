@@ -7,17 +7,28 @@ export default defineComponent({
   name: "SIcon",
   components: {JIcon},
   props: {
-    icon: {type: String, required: true}
+    icon: {type: String, required: true},
+    secondIconColor: {type: String},
+    href: {type: String}
   }
 })
 </script>
 
 <template>
-  <span class="sIcon">
+  <a v-if="href" :href="href">
+    <span class="sIcon">
     <JIcon class="icon icon1" :icon="icon" category="brands" type=large />
 
-    <JIcon class="icon icon2" :icon="icon" category="brands" type=large />
+    <JIcon :style="{ borderColor: secondIconColor || 'inherit', backgroundColor: secondIconColor || 'inherit'}" class="icon icon2" :icon="icon" category="brands" type=large />
   </span>
+  </a>
+
+  <span v-else class="sIcon">
+    <JIcon class="icon icon1" :icon="icon" category="brands" type=large />
+
+    <JIcon :style="{ borderColor: secondIconColor || 'inherit', backgroundColor: secondIconColor || 'inherit'}" class="icon icon2" :icon="icon" category="brands" type=large />
+  </span>
+
 </template>
 
 <style scoped lang="sass">
@@ -44,7 +55,7 @@ export default defineComponent({
     &2
       border-color: white
       background-color: white
-      color: var(--jv-color-neutral-0)
+      //color: #25D366
       bottom: 0
       transform: translateY(50%) rotate3d(1,0,0,-90deg)
 
