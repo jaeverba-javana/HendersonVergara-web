@@ -2,7 +2,7 @@ import {  renderToString } from 'vue/server-renderer'
 import { createApp } from './main'
 import {createMemoryHistory, createRouter} from "vue-router";
 import {routes} from "./router";
-import {createSSRApp, createVNode, h} from "vue";
+import {createSSRApp, h} from "vue";
 
 // export function render() {
 export async function render(url: string): Promise<string> {
@@ -23,14 +23,14 @@ export async function render(url: string): Promise<string> {
   const ctx = {}
   // const stream = renderToWebStream(app, ctx)
 
-  router.push(url)
+  await router.push(url)
   await router.isReady()
 
   const html = await renderToString(app, ctx)
 
   const head = await renderToString(
       createSSRApp({
-        setup(props, ctx) {
+        setup() {
           const {meta} = router.resolve(url);
 
           const elements = []

@@ -1,13 +1,9 @@
-
-import { useRouter } from "vue-router";
 import {CookieManager} from "../Utils.ts";
 
-const router = useRouter();
-
 const jv: {
-    install: (app: any, options: any) => void
+    install: (app: any) => void
 } = {
-    install: (app: any, options: any) => {
+    install: (app: any) => {
         const p = (typeof process !== 'undefined')
             app.mixin({
                 data: () => ({

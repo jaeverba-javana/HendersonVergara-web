@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises'
 import express from 'express'
 import userAgent from 'express-useragent'
-import {IS_PRODUCTION, PORT, BASE, CONSOLE_COLORS as CC} from "./utils/constants.js";
+import {IS_PRODUCTION, BASE, CONSOLE_COLORS as CC} from "./utils/constants.js";
 import cookieParser from "cookie-parser";
 
 // Cached production assets

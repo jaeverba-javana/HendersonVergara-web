@@ -1,7 +1,6 @@
 <script lang="ts">
 import {defineComponent, h} from 'vue'
 import JIcon from "@/Components/JIcon.vue";
-import {type} from "node:os";
 
 export default defineComponent({
   name: "JInput",
