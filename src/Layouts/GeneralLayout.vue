@@ -6,6 +6,7 @@ import JIcon from "@/Components/JIcon.vue";
 import SIcon from "@/Components/SIcon.vue";
 import SectionComponent from "@/Components/section/SectionComponent.vue";
 import SectionTitle from "@/Components/section/SectionTitleComponent.vue";
+import GridPhotoLayoutComponent from "@/Components/photoLayout/GridPhotoLayout2Component.vue";
 
 const name = ref("");
 const email = ref("");
@@ -18,9 +19,9 @@ const message = ref("");
   <header>
     <nav class="header">
       <div class="left">
-        <img class="iso" :src="rf+'/img/svg/logo/Logo%20Blanco%20.5.svg'" alt="">
+        <img class="iso" :src="'/img/svg/logo/Logo%20Blanco%20.5.svg'" alt="isologo">
 
-        <img class="typo" :src="rf+'/img/svg/logo/LogoTexto-Blanco-HShrink.svg'" alt="">
+        <img class="typo" :src="'/img/svg/logo/LogoTexto-Blanco-HShrink.svg'" alt="logotype">
       </div>
     </nav>
 
@@ -30,7 +31,7 @@ const message = ref("");
       <div class="image"></div>
 
       <div class="content">
-        <img class="logo" :src="rf+'/img/svg/logo/LogoTextoProducciones-Blanco.svg'" alt="">
+        <img class="logo" :src="'/img/svg/logo/LogoTextoProducciones-Blanco.svg'" alt="logotype">
 
         <span class="bc f-display-small">Bodas y compromisos</span>
 
@@ -53,7 +54,9 @@ const message = ref("");
             <SectionTitle title="Galería" />
           </template>
 
-          <div class="content">
+          <GridPhotoLayoutComponent />
+
+<!--          <div class="content">
             <div>
               <img src="/img/png/wedphotos/f17ee85fc7f4f0f2b447acb1b2cc3284.jpg" alt="">
               <img src="/img/png/wedphotos/6daea36b11f2c570ca0ea17283db4fea.png" alt="">
@@ -74,12 +77,15 @@ const message = ref("");
               <img src="/img/png/wedphotos/50afd919346edd44921109ec6132694d.png" alt="">
               <img src="/img/png/wedphotos/912eb74372fba15076389a9c553a00e7.png" alt="">
             </div>
+          </div>-->
+
+          <div style="height: 0; z-index: 100">
+            <div
+                style="position: relative; bottom: 20rem; height: 10rem; min-height: 20rem; background: linear-gradient(to top, #000 0%, #000d 20%, #0005 70%, #0000 100%);"></div>
           </div>
-
-          <span>
-
-          </span>
         </SectionComponent>
+
+        <span style="height: 7rem; display: block"></span>
       </main>
 <!--    </div>-->
 
@@ -96,6 +102,7 @@ const message = ref("");
       <span class="filler2"></span>
     </nav>
   </div>
+
 
   <footer>
     <div class="container">
@@ -134,6 +141,8 @@ header
     border-bottom: gray 1px solid
 
     .left
+      //width: 100%
+
       img
         height: 100%
 
@@ -262,7 +271,7 @@ header
       background-color: rgba(0, 0 , 0, 0.8)
       //background-color: white
       //backdrop-filter: blur(1rem)
-      padding: 4rem 2rem
+      padding: 2rem 2rem
       position: sticky
       bottom: 4rem
       display: flex

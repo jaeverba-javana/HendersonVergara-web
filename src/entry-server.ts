@@ -3,6 +3,7 @@ import { createApp } from './main'
 import {createMemoryHistory, createRouter} from "vue-router";
 import {routes} from "./router";
 import {createSSRApp, h} from "vue";
+import jvServer from "./plugins/jv/jv-server.ts";
 
 // export function render() {
 export async function render(url: string): Promise<string> {
@@ -19,6 +20,7 @@ export async function render(url: string): Promise<string> {
   })
 
   app.use(router)
+  app.use(jvServer)
 
   const ctx = {}
   // const stream = renderToWebStream(app, ctx)

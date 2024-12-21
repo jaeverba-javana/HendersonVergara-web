@@ -22,10 +22,12 @@ export default defineComponent({
   flex-direction: column
   align-items: center
   position: relative
-  padding: 2rem 1rem
+  padding: 2rem 2rem
   margin:
     top: 2rem
 
   &__container
+    width: 100%
     max-width: 1440px
+
 </style>

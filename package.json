@@ -8,7 +8,7 @@
     "build": "npm run build:client && npm run build:server",
     "build:client": "vite build --ssrManifest --outDir dist/client",
     "build:server": "vite build --ssr src/entry-server.ts --outDir dist/server",
-    "preview": "cross-env NODE_ENV=production node server",
+    "preview": "cross-env NODE_ENV=dev node server",
     "serve": "cross-env NODE_ENV=production node index"
   },
   "dependencies": {
@@ -21,9 +21,11 @@
     "express-useragent": "^1.0.15",
     "morgan": "^1.10.0",
     "pinia": "^2.2.2",
+    "sharp": "^0.33.5",
     "sirv": "^2.0.4",
     "vue": "^3.4.23",
-    "vue-router": "^4.4.0"
+    "vue-router": "^4.4.0",
+    "vuetify": "^3.7.2"
   },
   "devDependencies": {
     "@types/express": "^4.17.21",
