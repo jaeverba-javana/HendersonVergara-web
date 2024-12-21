@@ -1,6 +1,17 @@
 <script setup lang="ts">
 
 import JInput from "@/Components/JInput.vue";
+import {ref} from "vue";
+import JIcon from "@/Components/JIcon.vue";
+import SIcon from "@/Components/SIcon.vue";
+import SectionComponent from "@/Components/section/SectionComponent.vue";
+import SectionTitle from "@/Components/section/SectionTitleComponent.vue";
+import GridPhotoLayoutComponent from "@/Components/photoLayout/GridPhotoLayout2Component.vue";
+
+const name = ref("");
+const email = ref("");
+const phone = ref("");
+const message = ref("");
 </script>
 
 <template>
@@ -8,9 +19,9 @@ import JInput from "@/Components/JInput.vue";
   <header>
     <nav class="header">
       <div class="left">
-        <img :src="rf+'/img/svg/logo/Logo%20Blanco%20.5.svg'" alt="">
+        <img class="iso" :src="'/img/svg/logo/Logo%20Blanco%20.5.svg'" alt="isologo">
 
-        <img :src="rf+'/img/svg/logo/LogoTexto-Blanco-HShrink.svg'" alt="">
+        <img class="typo" :src="'/img/svg/logo/LogoTexto-Blanco-HShrink.svg'" alt="logotype">
       </div>
     </nav>
 
@@ -20,12 +31,15 @@ import JInput from "@/Components/JInput.vue";
       <div class="image"></div>
 
       <div class="content">
-        <img class="logo" :src="sr+'/img/svg/logo/LogoTextoProducciones-Blanco.svg'" alt="">
+        <img class="logo" :src="'/img/svg/logo/LogoTextoProducciones-Blanco.svg'" alt="logotype">
 
-          <span class="bc">Bodas y compromisos</span>
+        <span class="bc f-display-small">Bodas y compromisos</span>
 
-          <span class="rtmm">Retratamos tus mejores momentos</span>
+        <span class="rtmm f-display-medium ">Retratamos tus mejores momentos</span>
 
+        <div class="arrow">
+          <JIcon class="icon" icon="circleArrowDown" />
+        </div>
       </div>
     </div>
   </header>
@@ -33,10 +47,16 @@ import JInput from "@/Components/JInput.vue";
   <div class="mainando">
     <div class="aside left"></div>
 
-    <div class="content">
+<!--    <div class="content">-->
       <main>
-        <section class="photos">
-          <div>
+        <SectionComponent class="photos">
+          <template v-slot:title>
+            <SectionTitle title="Galería" />
+          </template>
+
+          <GridPhotoLayoutComponent />
+
+<!--          <div class="content">
             <div>
               <img src="/img/png/wedphotos/f17ee85fc7f4f0f2b447acb1b2cc3284.jpg" alt="">
               <img src="/img/png/wedphotos/6daea36b11f2c570ca0ea17283db4fea.png" alt="">
@@ -57,25 +77,41 @@ import JInput from "@/Components/JInput.vue";
               <img src="/img/png/wedphotos/50afd919346edd44921109ec6132694d.png" alt="">
               <img src="/img/png/wedphotos/912eb74372fba15076389a9c553a00e7.png" alt="">
             </div>
+          </div>-->
+
+          <div style="height: 0; z-index: 100">
+            <div
+                style="position: relative; bottom: 20rem; height: 10rem; min-height: 20rem; background: linear-gradient(to top, #000 0%, #000d 20%, #0005 70%, #0000 100%);"></div>
           </div>
+        </SectionComponent>
 
-          <span>
-
-          </span>
-        </section>
+        <span style="height: 7rem; display: block"></span>
       </main>
-    </div>
+<!--    </div>-->
 
     <div class="aside right"></div>
+
+    <nav aria-label="Social media link icons" class="socialMediaIcons">
+      <span class="filler"></span>
+
+      <div class="container">
+        <SIcon icon="whatsapp" second-icon-color="#25D366" href="https://wa.link/6vtqj0"/>
+        <SIcon icon="facebook" second-icon-color="#4267B2" />
+        <SIcon icon="instagram" second-icon-color="#C13584" />
+      </div>
+      <span class="filler2"></span>
+    </nav>
   </div>
+
 
   <footer>
     <div class="container">
+      <h2 class="f-display-large">Contacto</h2>
       <form @submit.prevent>
-        <JInput icon="user" class="name" />
-        <JInput icon="envelope" class="email" />
-        <JInput icon="phone" class="phone" />
-        <JInput icon="message" class="message" type="textarea" />
+        <JInput icon="user" class="name" placeholder="Nombre" v-model="name"/>
+        <JInput icon="envelope" class="email" placeholder="Correo Electrónico" v-model="email"/>
+        <JInput icon="phone" class="phone" placeholder="Teléfono" v-model="phone"/>
+        <JInput icon="message" class="message" placeholder="Teléfono" v-model="message" type="textarea"/>
       </form>
     </div>
   </footer>
@@ -105,8 +141,14 @@ header
     border-bottom: gray 1px solid
 
     .left
+      //width: 100%
+
       img
         height: 100%
+
+      @media (max-width: 480px)
+        .typo
+          display: none
 
   .header-content
     position: relative
@@ -135,6 +177,8 @@ header
       flex-direction: column
       row-gap: 8rem
 
+      position: relative
+
       > div
         display: flex
         flex-direction: column
@@ -144,68 +188,94 @@ header
       img
         max-width: 800px
 
-      span
+      .rtmm
         color: #FFF
 
         font-family: Montserrat
         font-style: normal
         line-height: normal
 
-        &.bc
-          font-size: 32px
-          font-weight: 400
-
         &.rtmm
-          font-size: 40px
           font-weight: 700
+
+      .arrow
+        position: absolute
+        bottom: 0
+
+        .icon
+          height: 10rem
+          color: var(--md-sys-color-primary)
+          border-radius: 6rem
+
+
 
 
 .mainando
   display: flex
+  position: relative
 
   justify-content: space-between
 
-  .content
-    display: flex
-    align-items: center
-    flex-direction: column
-    flex: 1
 
-    main
-      max-width: 1150px
-      padding: 4rem 2rem
 
-      section.photos
-        overflow: hidden
+  main
+    box-sizing: content-box
+    width: 100%
+    //display: flex
+    //align-items: center
+    //flex-direction: column
+
+    section.photos
+
+      div.content
         display: flex
-        flex-direction: column
-        position: relative
+        column-gap: 2rem
+        max-height: 1200px
 
         > div
+          flex: 1
           display: flex
-          column-gap: 2rem
-          max-height: 1200px
+          flex-direction: column
 
-          > div
-            flex: 1
-            display: flex
-            flex-direction: column
+          row-gap: 2rem
 
-            row-gap: 2rem
+          img
+            width: 100%
 
-            img
-              width: 100%
+      //~ img
+      //  margin-top: 2rem
 
-              //~ img
-              //  margin-top: 2rem
+      > span
+        width: 100%
+        position: absolute
+        bottom: 0
+        height: 80rem
 
-        > span
-          width: 100%
-          position: absolute
-          bottom: 0
-          height: 80rem
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.45) 28.5%, rgba(0, 0, 0, 0.79) 56%, rgba(0, 0, 0, 0.92) 70%, rgba(0, 0, 0, 0.97) 82%, rgba(0, 0, 0, 1) 100%)
 
-          background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.45) 28.5%, rgba(0, 0, 0, 0.79) 56%, rgba(0, 0, 0, 0.92) 70%, rgba(0, 0, 0, 0.97) 82%, rgba(0, 0, 0, 1) 100%)
+  .socialMediaIcons
+    position: absolute
+    height: 100%
+    top: 0
+    right: 0
+    display: flex
+    flex-direction: column
+
+    .filler
+      flex: 1
+
+    //.filler2
+    //  height: 100vh
+
+    .container
+      background-color: rgba(0, 0 , 0, 0.8)
+      //background-color: white
+      //backdrop-filter: blur(1rem)
+      padding: 2rem 2rem
+      position: sticky
+      bottom: 4rem
+      display: flex
+      column-gap: 1rem
 
 </style>
 

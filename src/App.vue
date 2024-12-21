@@ -12,6 +12,4 @@ onMounted(() => {
 </template>
 
 <style lang="sass">
-//#app
-//  flex: 1
 </style>

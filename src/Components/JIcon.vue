@@ -1,21 +1,36 @@
 <script lang="ts">
-import {defineComponent, h, onBeforeMount} from 'vue'
-import {regular} from "@/Fragments/Icons.js"
-import {DOMParser as mdp} from "@xmldom/xmldom"
+import {defineComponent, h, PropType} from 'vue'
+import Icons from "@/Fragments/Icons.js";
+
+type Category = 'regular'|'solid'|"brands";
+type Type = "regular"|"large"|"cover";
 
 export default defineComponent({
   name: "JIcon",
   props: {
-    icon: {type: String},
+    icon: {type: String, required: true},
+    category: {type: String as PropType<Category>, default: "regular"},
+    type: {type: String as PropType<Type>, default: "regular"}
   },
   setup(props) {
-    let svg = new mdp().parseFromString(regular[props.icon], "text/xml")
+    const icon = Icons[props.category][props.icon]
 
-    // console.log(svg.childNodes)
+    const maxSide = icon.viewBox.w > icon.viewBox.h? icon.viewBox.w : icon.viewBox.h
+    let rel: number;
 
-    let viewBox = svg.getElementsByTagName("svg")[0].getAttribute("viewBox")
+    switch (props.type) {
+      case "regular":
+        rel = 2;
+        break;
 
-    // let viewBox = svg.querySelector('svg')!.viewBox
+      case "large":
+        rel = 4/3;
+        break;
+
+      case "cover":
+        rel = 1;
+        break;
+    }
 
     let span = h(
         "span",
@@ -24,13 +39,9 @@ export default defineComponent({
             h(
                 "svg",
                 {
-                  // viewBox: `${viewBox.baseVal.x} ${viewBox.baseVal.y} ${viewBox.baseVal.width} ${viewBox.baseVal.height}`
-                  viewBox,
+                  viewBox: `${-(maxSide*rel-icon.viewBox.w)/2} ${-(maxSide*rel-icon.viewBox.h)/2} ${maxSide*rel} ${maxSide*rel}`
                 },
-                [
-                    // h("path", {d: svg.querySelector('path')!.getAttribute('d')})
-                    h("path", {d: svg.getElementsByTagName("path")[0]!.getAttribute('d')})
-                ]
+                [h("path", {d: icon.path.d})]
             )
         ]
     )
@@ -42,17 +53,10 @@ export default defineComponent({
 })
 </script>
 
-<template>
-
-</template>
-
 <style lang="sass">
 span[data-j-icon]
-  position: relative
-  display: flex
-  place:
-    content: center
-    items: center
+  //position: relative
+  display: block
 
   svg
     max-width: 100%
