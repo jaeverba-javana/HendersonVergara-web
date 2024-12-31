@@ -33,7 +33,7 @@ const message = ref("");
       <div class="content">
         <img class="logo" :src="'/img/svg/logo/LogoTextoProducciones-Blanco.svg'" alt="logotype">
 
-        <span class="bc f-display-small">Bodas y compromisos</span>
+        <h1 class="bc f-display-small">Bodas y compromisos</h1>
 
         <span class="rtmm f-display-medium ">Retratamos tus mejores momentos</span>
 
