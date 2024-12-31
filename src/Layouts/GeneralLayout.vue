@@ -96,8 +96,8 @@ const message = ref("");
 
       <div class="container">
         <SIcon icon="whatsapp" second-icon-color="#25D366" href="https://wa.link/6vtqj0"/>
-        <SIcon icon="facebook" second-icon-color="#4267B2" />
-        <SIcon icon="instagram" second-icon-color="#C13584" />
+        <SIcon icon="facebook" second-icon-color="#4267B2" href="https://web.facebook.com/henderson.vergara.5"/>
+        <SIcon icon="instagram" second-icon-color="#C13584" href="https://www.instagram.com/hendersonpro?igsh=c2w1b3lucWRudjJx"/>
       </div>
       <span class="filler2"></span>
     </nav>
