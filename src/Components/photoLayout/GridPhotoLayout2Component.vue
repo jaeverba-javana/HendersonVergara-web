@@ -23,7 +23,7 @@
 
 <template>
 <div :id="id" class="root">
-  <img v-for="item in 50" :src="`/galery/${json[item].path}`" :class="json[item].orientation" alt="Photo">
+  <img v-for="item in 30" :src="`/galery/${json[item].path}`" :class="json[item].orientation" alt="Photo">
 </div>
 </template>
 
@@ -37,6 +37,9 @@
   grid-auto-rows: auto
   grid-auto-flow: dense
   overflow: hidden
+
+  @media (max-width: 700px)
+    grid-template-columns: repeat(2, 1fr)
 
   img
     inline-size: 100%

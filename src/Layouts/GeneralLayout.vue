@@ -85,6 +85,32 @@ const message = ref("");
           </div>
         </SectionComponent>
 
+        <SectionComponent class="biography" >
+          <template v-slot:title>
+            <SectionTitle title="Sobre Nosotros" />
+          </template>
+
+          <div class="container">
+            <div class="imgContainer">
+              <img src="/img/jpg/profile-photo.jpg" alt="Photographer photo">
+            </div>
+            
+            <div class="text">
+                <img src="/img/jpg/profile-photo.jpg" alt="Photographer photo">
+
+              <p>Hola, soy Henderson Vergara, el alma creativa detrás de Henderson Vergara producciones. Con sede en la hermosa Santa Marta, Colombia. me especializo en capturar los momentos más memorables de tu vida a través de la lente de mi cámara. Como fotógrafo profesional, mi pasión es transformar tus eventos especiales en recuerdos eternos, especialmente en las espectaculares bodas en la playa que nuestra región tiene para ofrecer.</p>
+
+              <p>En Henderson Vergara Producciones, nos enorgullecemos de ofrecer servicios de fotografía de alta calidad que reflejan el amor, la alegría y la belleza de cada ocasión. Ya sea que estés celebrando una boda íntima en la arena dorada de Santa Marta o un evento grandioso en un resort de lujo, estamos aquí para documentar cada sonrisa, cada lágrima de felicidad y cada detalle significativo.</p>
+
+              <p>Aunque la fotografía es nuestra especialidad, también ofrecemos servicios de video para complementar tu experiencia visual. Nuestro objetivo es proporcionar un servicio integral que capture no solo imágenes estáticas, sino también momentos en movimiento que narren tu historia de manera completa y auténtica.</p>
+
+              <p>Permítenos ser parte de tu día especial y ayudarte a crear recuerdos que durarán toda la vida. En Henderson Vergara Producciones, tu satisfacción es nuestra prioridad y nos comprometemos a brindarte un servicio profesional y personalizado que supere tus expectativas.</p>
+
+              <p><a href="#contact">Contacta con nosotros</a> hoy mismo y descubre cómo podemos hacer que tus momentos más preciados cobren vida a través de la fotografía en Santa Marta Colombia.</p>
+            </div>
+          </div>
+        </SectionComponent>
+
         <span style="height: 7rem; display: block"></span>
       </main>
 <!--    </div>-->
@@ -96,8 +122,8 @@ const message = ref("");
 
       <div class="container">
         <SIcon icon="whatsapp" second-icon-color="#25D366" href="https://wa.link/6vtqj0"/>
-        <SIcon icon="facebook" second-icon-color="#4267B2" />
-        <SIcon icon="instagram" second-icon-color="#C13584" />
+        <SIcon icon="facebook" second-icon-color="#4267B2" href="https://web.facebook.com/henderson.vergara.5"/>
+        <SIcon icon="instagram" second-icon-color="#C13584" href="https://www.instagram.com/hendersonpro?igsh=c2w1b3lucWRudjJx"/>
       </div>
       <span class="filler2"></span>
     </nav>
@@ -105,7 +131,7 @@ const message = ref("");
 
 
   <footer>
-    <div class="container">
+    <div class="container" id="contact">
       <h2 class="f-display-large">Contacto</h2>
       <form @submit.prevent>
         <JInput icon="user" class="name" placeholder="Nombre" v-model="name"/>
@@ -225,33 +251,76 @@ header
     //align-items: center
     //flex-direction: column
 
-    section.photos
-
-      div.content
-        display: flex
-        column-gap: 2rem
-        max-height: 1200px
-
-        > div
-          flex: 1
+    section
+      &.photos
+        div.content
           display: flex
-          flex-direction: column
+          column-gap: 2rem
+          max-height: 1200px
 
-          row-gap: 2rem
+          > div
+            flex: 1
+            display: flex
+            flex-direction: column
 
-          img
+            row-gap: 2rem
+
+            img
+              width: 100%
+
+        //~ img
+        //  margin-top: 2rem
+
+          > span
             width: 100%
+            position: absolute
+            bottom: 0
+            height: 80rem
 
-      //~ img
-      //  margin-top: 2rem
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.45) 28.5%, rgba(0, 0, 0, 0.79) 56%, rgba(0, 0, 0, 0.92) 70%, rgba(0, 0, 0, 0.97) 82%, rgba(0, 0, 0, 1) 100%)
 
-      > span
-        width: 100%
-        position: absolute
-        bottom: 0
-        height: 80rem
+      &.biography
+        .container
+          display: flex
+          gap: 2rem
+          align-items: center
 
-        background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.45) 28.5%, rgba(0, 0, 0, 0.79) 56%, rgba(0, 0, 0, 0.92) 70%, rgba(0, 0, 0, 0.97) 82%, rgba(0, 0, 0, 1) 100%)
+          > .imgContainer
+            flex: 2
+            max-width: 50rem
+
+            @media (max-width: 940px)
+              display: none
+
+            img
+              width: 100%
+
+          .text
+            > img
+              display: none
+              margin: 0 2rem 1rem 0
+              width: 50%
+              max-width: 50rem
+
+
+              @media (min-width: 650px) and (max-width: 940px)
+                display: block
+                float: left
+                //width: 50%
+                //max-width: 50rem
+                //margin: 0 2rem 1rem 0
+
+              @media (max-width: 650px)
+                display: block
+                float: left
+                //margin: 0 2rem 1rem 0
+
+            flex: 3
+            p
+              text-align: justify
+
+            p + p
+              margin-top: 1rem
 
   .socialMediaIcons
     position: absolute
@@ -281,14 +350,15 @@ header
 
 <style lang="scss">
 footer {
-  display: flex;
+  //display: flex;
+  display: none;
   justify-content: center;
 
   background-color: var(--jv-color-neutral-5);
 
   .container {
     max-width: 1150px;
-    padding: 4rem 2rem;
+    padding: 4rem 2rem 2rem;
     width: 100%;
 
     form {
