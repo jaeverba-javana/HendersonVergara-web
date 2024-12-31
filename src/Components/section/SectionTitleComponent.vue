@@ -6,7 +6,8 @@ export default defineComponent({
   name: "SectionTitle",
   components: {JIcon},
   props: {
-    title: {type: String}
+    title: {type: String},
+    seeMore: {type: Boolean, default: false}
   }
 })
 </script>
@@ -15,7 +16,7 @@ export default defineComponent({
   <div class="root">
     <h2 class="f-display-medium">{{title}}</h2>
 
-    <a href="/" class="seeMore">
+    <a v-if="seeMore" href="/" class="seeMore">
       <span class="f-headline-medium">
         Ver más
       </span>

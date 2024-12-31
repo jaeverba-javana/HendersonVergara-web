@@ -38,6 +38,9 @@
   grid-auto-flow: dense
   overflow: hidden
 
+  @media (max-width: 700px)
+    grid-template-columns: repeat(2, 1fr)
+
   img
     inline-size: 100%
     height: 100%
