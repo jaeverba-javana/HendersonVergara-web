@@ -9,11 +9,11 @@ export const routes:RouteRecordRaw[] = [
     //         if (isAuth) next() else next('/other/route')
     //     }
         meta: {
-            title: "Home",
+            title: "HV Producciones",
             meta: [
                 {
                     name: "description",
-                    content: "esta es mi breve description"
+                    content: "Henderson Vergara, fotógrafo profesional en Santa Marta, Colombia, especializado en bodas en la playa. Capturamos momentos memorables con servicios de fotografía y video de alta calidad. Documentamos cada detalle de tus eventos especiales, creando recuerdos eternos. Contacta a Henderson Vergara Producciones para un servicio personalizado y profesional que superará tus expectativas."
                 }
             ]
         }
