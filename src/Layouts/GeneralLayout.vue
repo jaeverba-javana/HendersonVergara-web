@@ -186,10 +186,17 @@ header
       position: absolute
 
     .image
-      background-image: url('/img/png/trash/img.png')
+      background-image: url('/img/png/trash/img-small.webp')
       background-size: cover
       background-position: center
       filter: saturate(0) brightness(50%)
+
+      @media (min-width: 740px)
+        background-image: url('/img/png/trash/img-regular.webp')
+
+      @media (min-width: 1920px)
+        background-image: url('/img/png/trash/img-large.webp')
+
 
     .content
       z-index: 1
