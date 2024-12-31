@@ -23,7 +23,7 @@
 
 <template>
 <div :id="id" class="root">
-  <img v-for="item in 50" :src="`/galery/${json[item].path}`" :class="json[item].orientation" alt="Photo">
+  <img v-for="item in 30" :src="`/galery/${json[item].path}`" :class="json[item].orientation" alt="Photo">
 </div>
 </template>
 
